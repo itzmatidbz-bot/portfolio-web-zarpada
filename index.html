@@ -29,7 +29,11 @@
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  
+
+  <link rel="preload" href="/styles.css" as="style">
+  <link rel="preload" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-6ip9rK4sFs43Xppj22lfwcS9YkqAYr.png" as="image" fetchpriority="high">
+  <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style">
+
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
@@ -90,7 +94,7 @@
   <style>
     section {
       content-visibility: auto;
-      contain-intrinsic-size: 1000px;
+      contain-intrinsic-size: 1000px; /* Tamaño estimado para evitar saltos de layout */
     }
   </style>
 
@@ -151,7 +155,102 @@
 
     <main>
         <section class="hero" id="inicio">
-            </section>
+            <div class="hero__container container">
+                <div class="hero__content" data-aos="fade-up">
+                    <div class="hero__logo-showcase">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-6ip9rK4sFs43Xppj22lfwcS9YkqAYr.png" alt="Web Zarpada - Desarrollador Web en Uruguay" class="hero__logo-img" width="120" height="120">
+                    </div>
+                    
+                    <h1 class="hero__title">
+                        Soy Matías, <strong>desarrollador web</strong> en Uruguay creando
+                        <span class="hero__title-gradient">páginas únicas</span>
+                    </h1>
+                    
+                    <p class="hero__description">
+                        <strong>Desarrollador web freelance</strong> de 16 años especializado en crear <strong>sitios  profesionales</strong> con HTML, CSS y JavaScript en <strong>Uruguay</strong>. 
+                        Uso herramientas de AI para acelerar el desarrollo y crear <strong>páginas web responsive</strong> a precios accesibles.
+                    </p>
+                    
+                    <div class="hero__stats">
+                        <div class="hero__stat" data-aos="fade-up" data-aos-delay="200">
+                            <div class="hero__stat-number">2</div>
+                            <div class="hero__stat-label">Año programando</div>
+                        </div>
+                        <div class="hero__stat" data-aos="fade-up" data-aos-delay="300">
+                            <div class="hero__stat-number">8</div>
+                            <div class="hero__stat-label">Proyectos completados</div>
+                        </div>
+                        <div class="hero__stat" data-aos="fade-up" data-aos-delay="400">
+                            <div class="hero__stat-number">100</div>
+                            <div class="hero__stat-label">% Dedicación</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero__actions" data-aos="fade-up" data-aos-delay="500">
+                        <button class="btn btn--primary btn--large" onclick="contactMatias()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516" fill="currentColor"/>
+                            </svg>
+                            Hablemos de tu proyecto web
+                        </button>
+                        <button class="btn btn--secondary btn--large" onclick="scrollToSection('portfolio')">
+                            Ver mis trabajos
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M7 13L12 18L17 13M7 6L12 11L17 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero__visual" data-aos="fade-left" data-aos-delay="300">
+                    <div class="hero__mockups">
+                        <div class="mockup mockup--1">
+                            <div class="mockup__header">
+                                <div class="mockup__dot"></div>
+                                <div class="mockup__dot"></div>
+                                <div class="mockup__dot"></div>
+                            </div>
+                            <div class="mockup__content">
+                                <div class="mockup__line"></div>
+                                <div class="mockup__line mockup__line--short"></div>
+                                <div class="mockup__image"></div>
+                                <div class="mockup__line mockup__line--medium"></div>
+                                <div class="mockup__line"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mockup mockup--2">
+                            <div class="mockup__header">
+                                <div class="mockup__dot"></div>
+                                <div class="mockup__dot"></div>
+                                <div class="mockup__dot"></div>
+                            </div>
+                            <div class="mockup__content">
+                                <div class="mockup__line mockup__line--medium"></div>
+                                <div class="mockup__line"></div>
+                                <div class="mockup__image"></div>
+                                <div class="mockup__line mockup__line--short"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mockup mockup--3">
+                            <div class="mockup__header">
+                                <div class="mockup__dot"></div>
+                                <div class="mockup__dot"></div>
+                                <div class="mockup__dot"></div>
+                            </div>
+                            <div class="mockup__content">
+                                <div class="mockup__line"></div>
+                                <div class="mockup__line mockup__line--medium"></div>
+                                <div class="mockup__image"></div>
+                                <div class="mockup__line mockup__line--short"></div>
+                                <div class="mockup__line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="portfolio" id="portfolio">
             <div class="portfolio__container container">
@@ -170,38 +269,469 @@
                 
                 <div class="portfolio__grid" id="portfolio-grid">
                     </div>
-
             </div>
         </section>
 
         <section class="services" id="servicios">
-            </section>
+            <div class="services__container container">
+                <header class="services__header" data-aos="fade-up">
+                    <div class="section-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                        </svg>
+                        <span>Lo que puedo hacer</span>
+                    </div>
+                    <h2 class="section-title">Servicios de <strong>desarrollo web</strong> que ofrezco</h2>
+                    <p class="section-description">
+                        Como <strong>desarrollador web freelance</strong> en <strong>Uruguay</strong>, me especializo en crear <strong>sitios web profesionales</strong> usando las mejores herramientas disponibles
+                    </p>
+                </header>
+                
+                <div class="services__grid">
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Landing Pages Profesionales</h3>
+                        <p class="service-card__description">
+                            <strong>Páginas web de una sola página</strong> que lo dicen todo. Perfectas para presentar tu proyecto, 
+                            producto o servicio de manera impactante. <strong>Landing pages responsive</strong> optimizadas para conversión.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Diseño 100% personalizado</li>
+                            <li>Responsive en todos los dispositivos</li>
+                            <li>Animaciones que enamoran</li>
+                            <li>Optimizada para Google (SEO)</li>
+                            <li>Botón de contacto WhatsApp</li>
+                            <li>Carga súper rápida</li>
+                        </ul>
+                    </article>
 
-      <section class="pricing" id="precios">
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/>
+                                <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Sitios Web Completos</h3>
+                        <p class="service-card__description">
+                            <strong>Sitios web multi-página</strong> conectadas para mostrar todo lo que hacés. 
+                            Inicio, servicios, portfolio, contacto... ¡lo que necesites! <strong>Desarrollo web completo</strong> en Uruguay.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Navegación fluida entre páginas</li>
+                            <li>Cada página con su personalidad</li>
+                            <li>Galería de imágenes optimizada</li>
+                            <li>Botones de contacto integrados</li>
+                            <li>Diseño responsive completo</li>
+                            <li>Animaciones suaves</li>
+                            <li>SEO básico incluido</li>
+                            <li>Código fuente incluido</li>
+                            <li>2 revisiones incluidas</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M20 21V19C20 16.7909 18.2091 15 16 15H8C5.79086 15 4 16.7909 4 19V21" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Portfolios Creativos</h3>
+                        <p class="service-card__description">
+                            Mostrá tu trabajo como se merece. <strong>Portfolios web interactivos</strong>, 
+                            efectos visuales y un diseño que refleje tu estilo único. <strong>Páginas web para artistas</strong> y profesionales.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Galería con efectos especiales</li>
+                            <li>Filtros por categoría</li>
+                            <li>Lightbox para ver detalles</li>
+                            <li>CV/About personalizado</li>
+                            <li>Links a redes sociales</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
         </section>
 
+      <section class="pricing" id="precios">
+        <div class="pricing__container container">
+            <header class="pricing__header" data-aos="fade-up">
+            <div class="section-badge" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                </svg>
+                <span>Planes con garantía</span>
+            </div>
+            <h2 class="section-title">Planes de <strong>páginas web estáticas</strong> pensados para tu negocio</h2>
+            <p class="section-description">
+                <strong>Entrega máxima en 7 días</strong> y procesos claros. Planes con todo lo necesario para salir a vender.
+                <strong>Precios en USD</strong> para desarrollo web en Uruguay <strong>(sin dominio incluido)</strong>.
+            </p>
+            </header>
+
+            <div class="pricing__offer" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing__offer-badge" aria-hidden="true">✅ Garantía de entrega</div>
+            <p class="pricing__offer-text">
+                <strong>Tu web lista en 7 días máximo</strong> o te llevás un <strong>10% de descuento</strong>. Sin vueltas, sin demoras.
+            </p>
+            </div>
+
+            <div class="pricing__grid">
+            <article class="pricing-card" data-aos="fade-up" data-aos-delay="120">
+                <header class="pricing-card__header">
+                <h3 class="pricing-card__title">Landing Express</h3>
+                <div class="pricing-card__price" aria-label="Precio desde 50 dólares">
+                    <span class="pricing-card__currency">Desde $</span>
+                    <span class="pricing-card__amount">50</span>
+                    <span class="pricing-card__period">USD</span>
+                </div>
+                <p class="pricing-card__description">
+                    <strong>One‑page</strong> clara, rápida y vendedora para captar contactos por WhatsApp.
+                </p>
+                </header>
+                <div class="pricing-card__content">
+                <ul class="pricing-card__features">
+                    <li>1 página responsive (hasta 6 secciones)</li>
+                    <li>Diseño moderno y limpio</li>
+                    <li>SEO local básico</li>
+                    <li>Botón WhatsApp + formulario simple</li>
+                    <li>Mapa y datos de contacto</li>
+                    <li>Analítica instalada</li>
+                    <li>1 ronda de cambios</li>
+                    <li>Código fuente incluido</li>
+                    <li>Entrega máx. 7 días</li>
+                </ul>
+                <button class="btn btn--primary btn--full pricing-card__cta" onclick="contactPlan('Landing Express - desde $50')" aria-label="Elegir plan Landing Express desde 50 dólares">
+                    Elegir este plan
+                </button>
+                </div>
+            </article>
+
+            <article class="pricing-card pricing-card--featured" data-aos="fade-up" data-aos-delay="200">
+                <div class="pricing-card__badge" aria-hidden="true">Más Popular</div>
+                <header class="pricing-card__header">
+                <h3 class="pricing-card__title">Sitio Negocio</h3>
+                <div class="pricing-card__price" aria-label="Oferta: antes 100, ahora 70 dólares">
+                    <span class="pricing-card__currency">Desde $</span>
+                    <span class="pricing-card__amount">70</span>
+                    <span class="pricing-card__period">USD</span>
+                </div>
+                <p class="pricing-card__description">
+                    <strong>Multipágina estática</strong> para presentar servicios, trabajos y preguntas frecuentes.
+                </p>
+                <div class="pricing-card__discount" aria-label="Precio anterior 100 dólares">
+            
+                </div>
+                </header>
+                <div class="pricing-card__content">
+                <ul class="pricing-card__features">
+                    <li>Hasta <strong>4 páginas conectadas</strong> (Inicio, Servicios, Portfolio, Contacto)</li>
+                    <li>Navegación entre páginas</li>
+                    <li>Galería de imágenes</li>
+                    <li>CTA a WhatsApp y formulario</li>
+                    <li>Diseño responsive completo</li>
+                    <li>Animaciones suaves optimizadas</li>
+                    <li>SEO on‑page mejorado (metas, OG, schema básico)</li>
+                    <li>Analítica instalada</li>
+                    <li>2 rondas de cambios</li>
+                    <li>Entrega máx. 7 días</li>
+                </ul>
+                <button class="btn btn--primary btn--full pricing-card__cta" onclick="contactPlan('Sitio Negocio - oferta $70 (antes $100)')" aria-label="Elegir plan Sitio Negocio, oferta 70 dólares">
+                    ¡Quiero este!
+                </button>
+                </div>
+            </article>
+
+            <article class="pricing-card" data-aos="fade-up" data-aos-delay="280">
+                <header class="pricing-card__header">
+                <h3 class="pricing-card__title">Pro Estático</h3>
+                <div class="pricing-card__price" aria-label="Precio desde 150 dólares">
+                    <span class="pricing-card__currency">Desde $</span>
+                    <span class="pricing-card__amount">150</span>
+                    <span class="pricing-card__period">USD</span>
+                </div>
+                <p class="pricing-card__description">
+                    <strong>Diseño a medida</strong> con más páginas, componentes custom y performance afinada.
+                </p>
+                </header>
+                <div class="pricing-card__content">
+                <ul class="pricing-card__features">
+                    <li>Hasta 8 páginas estáticas (expandible)</li>
+                    <li>Diseño y microcopy a medida</li>
+                    <li>Componentes personalizados (cards, tabs, testimonios)</li>
+                    <li>Galería interactiva y secciones destacadas</li>
+                    <li>SEO ampliado (schema LocalBusiness/Service + OG/Twitter)</li>
+                    <li>Optimización de velocidad (imágenes AVIF/WebP, preloads)</li>
+                    <li>Documentación de uso</li>
+                    <li>3 rondas de cambios</li>
+                    <li>Prioridad de desarrollo</li>
+                    <li>Entrega máx. 7 días</li>
+                </ul>
+                <button class="btn btn--primary btn--full pricing-card__cta" onclick="contactPlan('Pro Estático - desde $150')" aria-label="Elegir plan Pro Estático desde 150 dólares">
+                    Crear algo único
+                </button>
+                </div>
+            </article>
+            </div>
+
+            <div class="pricing__note" data-aos="fade-up" data-aos-delay="360">
+            <p>
+                <strong>Alcance y condiciones:</strong> Todos los planes son <strong>sitios estáticos</strong>. Landing: máx. 6 secciones y 1 ronda. 
+                Sitio Negocio: hasta 4 páginas y 2 rondas. Pro: hasta 8 páginas, 3 rondas y prioridad. 
+                <strong>Dominio y correo corporativo opcionales.</strong> 
+                <strong>Hosting y mantenimiento</strong> se contratan aparte (plan mensual). 
+                Todos incluyen <strong>SEO on‑page, analítica y optimización mobile</strong>.
+            </p>
+            </div>
+        </div>
+      </section>
+
         <section class="about" id="nosotros">
-            </section>
+            <div class="about__container container">
+                <div class="about__content">
+                    <div class="about__info" data-aos="fade-right">
+                        <div class="about__badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                            </svg>
+                            <span>Mi historia</span>
+                        </div>
+                        <h2 class="about__title">Estudiante apasionado por el <strong>desarrollo web</strong></h2>
+                        <p class="about__description">
+                            Tengo 16 años y estudio en <strong>UTU de Informatica</strong>. Me apasiona el <strong>desarrollo web</strong> 
+                            y uso herramientas como v0 para crear <strong>sitios web únicos</strong> y funcionales en <strong>Uruguay</strong>.
+                        </p>
+                        <p class="about__description">
+                            Aunque soy joven, me tomo muy en serio cada proyecto. Uso herramientas modernas como <strong>v0 o Claude</strong> 
+                            y otras tecnologías avanzadas para acelerar mi trabajo y crear <strong>páginas web</strong> que realmente funcionen y se vean profesionales.
+                        </p>
+                        <p class="about__description">
+                            Mi ventaja es que ofrezco <strong>precios accesibles</strong> sin sacrificar calidad. Cada peso que cobro 
+                            lo reinvierto en aprender más y mejorar mis habilidades como <strong>desarrollador web</strong>.
+                        </p>
+                        
+                        <div class="about__features">
+                            <div class="about__feature">
+                                <div class="about__feature-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <span class="about__feature-text">Desarrollo rápido</span>
+                            </div>
+                            
+                            <div class="about__feature">
+                                <div class="about__feature-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <span class="about__feature-text">Diseños únicos</span>
+                            </div>
+                            
+                            <div class="about__feature">
+                                <div class="about__feature-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="about__feature-text">100% responsive</span>
+                            </div>
+                            
+                            <div class="about__feature">
+                                <div class="about__feature-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M12 2V6M12 18V22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12H6M18 12H22M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="about__feature-text">Soporte continuo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about__visual" data-aos="fade-left">
+                        <div class="about__logo-container">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-6ip9rK4sFs43Xppj22lfwcS9YkqAYr.png" alt="Web Zarpada - Desarrollador Web Uruguay" class="about__logo-large" width="100" height="100" loading="lazy" decoding="async">
+                        </div>
+                        <div class="about__code-window">
+                            <div class="about__code-header">
+                                <div class="about__code-controls">
+                                    <div class="about__code-control about__code-control--red"></div>
+                                    <div class="about__code-control about__code-control--yellow"></div>
+                                    <div class="about__code-control about__code-control--green"></div>
+                                </div>
+                                <span class="about__code-title">matias-portfolio.js</span>
+                            </div>
+                            <div class="about__code-content">
+                                <div class="about__code-line">
+                                    <span class="about__code-tag">const</span>
+                                    <span class="about__code-text"> developer = {</span>
+                                </div>
+                                <div class="about__code-line">
+                                    <span class="about__code-text">  </span>
+                                    <span class="about__code-attr">name:</span>
+                                    <span class="about__code-string"> "Matías"</span><span class="about__code-text">,</span>
+                                </div>
+                                <div class="about__code-line">
+                                    <span class="about__code-text">  </span>
+                                    <span class="about__code-attr">location:</span>
+                                    <span class="about__code-string"> "Uruguay"</span><span class="about__code-text">,</span>
+                                </div>
+                                <div class="about__code-line">
+                                    <span class="about__code-text">  </span>
+                                    <span class="about__code-attr">passion:</span>
+                                    <span class="about__code-string"> "Páginas web"</span><span class="about__code-text">,</span>
+                                </div>
+                                <div class="about__code-line">
+                                    <span class="about__code-text">  </span>
+                                    <span class="about__code-attr">specialty:</span>
+                                    <span class="about__code-string"> "Desarrollo web"</span>
+                                </div>
+                                <div class="about__code-line">
+                                    <span class="about__code-text">}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="contact" id="contacto">
-            </section>
+            <div class="contact__container container">
+                <div class="contact__content">
+                    <div class="contact__info" data-aos="fade-right">
+                        <div class="contact__badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Contacto directo</span>
+                        </div>
+                        <h2 class="contact__title">¿Tenés una idea genial para tu <strong>página web</strong>?</h2>
+                        <p class="contact__description">
+                            Contame tu proyecto y te ayudo a hacerlo realidad. 
+                            Desde una <strong>landing page simple</strong> hasta un <strong>sitio web complejo</strong>, charlemos sin compromiso. 
+                            <strong>Desarrollador web en Uruguay</strong> disponible para tu proyecto.
+                        </p>
+                    </div>
+                    
+                    <div class="contact__cta" data-aos="fade-left">
+                        <h3 class="contact__cta-title">Hablemos por WhatsApp</h3>
+                        <div class="contact__specialists">
+                            <a href="https://wa.me/59892014535" class="specialist-card" target="_blank" rel="noopener">
+                                <div class="specialist-card__avatar">
+                                    <span>M</span>
+                                </div>
+                                <div class="specialist-card__info">
+                                    <div class="specialist-card__name">Matías</div>
+                                    <div class="specialist-card__role">Desarrollador Web Freelance</div>
+                                    <div class="specialist-card__number">092 014 535</div>
+                                </div>
+                                <div class="specialist-card__action">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div style="margin-top: 2rem; text-align: center;">
+                            <p style="color: var(--color-gray-600); font-size: var(--font-size-sm);">
+                                📧 También podés escribirme a: <strong>webzarpada@gmail.com</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
-        </footer>
+        <div class="footer__container container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-6ip9rK4sFs43Xppj22lfwcS9YkqAYr.png" alt="Web Zarpada" class="footer__logo-icon" width="48" height="48" loading="lazy" decoding="async">
+                        <span class="footer__logo-text">Web Zarpada</span>
+                    </div>
+                    <p class="footer__description">
+                        <strong>Desarrollador web freelance</strong> de 16 años especializado en crear <strong>sitios web únicos</strong> en <strong>Uruguay</strong>. 
+                        Combino creatividad juvenil con herramientas profesionales para entregar <strong>páginas web</strong> de calidad.
+                    </p>
+                </div>
+                
+                <div class="footer__links">
+                    <h4 class="footer__title">Enlaces</h4>
+                    <ul class="footer__list">
+                        <li><a href="#inicio" class="footer__link">Inicio</a></li>
+                        <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
+                        <li><a href="#servicios" class="footer__link">Servicios</a></li>
+                        <li><a href="#precios" class="footer__link">Precios</a></li>
+                        <li><a href="#nosotros" class="footer__link">Sobre mí</a></li>
+                        <li><a href="#contacto" class="footer__link">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__contact">
+                    <h4 class="footer__title">Contacto</h4>
+                    <ul class="footer__list">
+                        <li><a href="https://wa.me/59892014535" class="footer__link" rel="noopener">WhatsApp: 092 014 535</a></li>
+                        <li><span class="footer__link">webzarpada@gmail.com</span></li>
+                        <li><span class="footer__link">Montevideo, Uruguay</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    © 2025 Matías - Web Zarpada. Hecho con ❤️ en Uruguay.
+                </p>
+            </div>
+            
+            <p class="footer__note">
+                Todos los <strong>sitios web</strong> son desarrollados completamente desde cero con HTML, CSS y JavaScript puro. 
+                Rápidos, únicos y personalizables. <strong>Desarrollo web profesional en Uruguay</strong>.
+            </p>
+        </div>
+    </footer>
 
     <a href="https://wa.me/59892014535" class="whatsapp-float" id="whatsapp-float" aria-label="Contactar por WhatsApp">
-        </a>
+        <div class="whatsapp-float__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516" fill="currentColor"/>
+            </svg>
+        </div>
+    </a>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-    <script src="scripts.js" defer></script>
-    <script defer>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/sw.js").catch(console.error);
+       <script defer>
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            AOS.init({
+              once: true,
+              duration: 500,
+              offset: 60,
+              easing: 'ease-out'
             });
-        }
-    </script>
+          }
+       </script>
+
+    <script src="scripts.js" defer></script>
+ <script defer>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js").catch(console.error);
+      });
+    }
+  </script>
 </body>
 </html>
