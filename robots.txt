@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+# No indexar parámetros de campañas ni el SW
+Disallow: /sw.js$
+Disallow: /*?*utm_*
+Disallow: /*?*gclid=*
+Disallow: /*?*fbclid=*
+# Crawl suave
+Crawl-delay: 2
+
+Sitemap: https://webzarpada.netlify.app/sitemap.xml

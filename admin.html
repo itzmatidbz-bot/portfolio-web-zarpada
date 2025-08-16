@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <span class="nav__logo-text">Panel de Admin</span>
+            </a>
+            <button id="logout-button" class="btn btn--secondary btn--small">Cerrar Sesión</button>
+        </nav>
+    </header>
+
+    <main class="container" style="padding-top: 100px;">
+        <h2>Añadir / Editar Proyecto</h2>
+        <form id="project-form">
+            <input type="hidden" id="project-id"> <input type="text" id="titulo" placeholder="Título" required>
+            <textarea id="descripcion" placeholder="Descripción" required></textarea>
+            <input type="url" id="url_imagen" placeholder="URL de la Imagen" required>
+            <input type="url" id="url_sitio" placeholder="URL del Sitio Web" required>
+            <button type="submit" class="btn btn--primary">Guardar Proyecto</button>
+            <button type="button" id="cancel-edit" class="btn btn--secondary" style="display: none;">Cancelar Edición</button>
+        </form>
+
+        <hr style="margin: 2rem 0;">
+
+        <h2>Proyectos Existentes</h2>
+        <div id="proyectos-lista"></div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
