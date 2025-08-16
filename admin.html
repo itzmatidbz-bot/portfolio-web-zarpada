@@ -4,7 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles.css"> <style>
+        /* Estilos básicos para el admin para que se vea bien */
+        #project-form input, #project-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .proyecto-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .proyecto-item h4 {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -19,10 +41,12 @@
     <main class="container" style="padding-top: 100px;">
         <h2>Añadir / Editar Proyecto</h2>
         <form id="project-form">
-            <input type="hidden" id="project-id"> <input type="text" id="titulo" placeholder="Título" required>
-            <textarea id="descripcion" placeholder="Descripción" required></textarea>
-            <input type="url" id="url_imagen" placeholder="URL de la Imagen" required>
-            <input type="url" id="url_sitio" placeholder="URL del Sitio Web" required>
+            <input type="hidden" id="project-id">
+            <input type="text" id="titulo" placeholder="Título del Proyecto" required>
+            <textarea id="descripcion" placeholder="Descripción del Proyecto" required rows="4"></textarea>
+            <input type="url" id="url_sitio" placeholder="URL del Sitio Web (https://...)" required>
+            <input type="url" id="url_imagen" placeholder="URL de la Imagen (opcional)">
+            <input type="text" id="tags" placeholder="Tags (separados por coma: Tag1, Tag2, Tag3)" required>
             <button type="submit" class="btn btn--primary">Guardar Proyecto</button>
             <button type="button" id="cancel-edit" class="btn btn--secondary" style="display: none;">Cancelar Edición</button>
         </form>

@@ -1,6 +1,77 @@
 // ==============================
-// scripts.js — Web Zarpada (optimized, same API)
+// scripts.js — Web Zarpada (con Supabase integrado)
 // ==============================
+
+// ===== CONFIGURACIÓN DE SUPABASE =====
+const SUPABASE_URL = 'https://fmsysdjqcliuwjesilam.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtc3lzZGpxY2xpdXdqZXNpbGFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUzMDYzNTYsImV4cCI6MjA3MDg4MjM1Nn0.PJpuqtAAnP5396wzP-g4Bh2tFs_NWjJ6YgyQiTVcx5w';
+
+const supabaseCliente = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
+// ===== FUNCIÓN PARA CARGAR PROYECTOS DEL PORTFOLIO =====
+async function cargarProyectos() {
+    const portfolioGrid = document.getElementById('portfolio-grid');
+    if (!portfolioGrid) return; // Si no está el contenedor, no hacemos nada
+
+    const { data, error } = await supabaseCliente
+        .from('proyectos')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        console.error('Error al cargar proyectos:', error);
+        portfolioGrid.innerHTML = '<p>Error al cargar los proyectos. Intenta de nuevo más tarde.</p>';
+        return;
+    }
+
+    if (data.length === 0) {
+        portfolioGrid.innerHTML = '<p>Aún no hay proyectos para mostrar. ¡Vuelve pronto!</p>';
+        return;
+    }
+
+    // Generamos el HTML para cada proyecto y lo insertamos
+    portfolioGrid.innerHTML = data.map(proyecto => {
+        // Creamos los tags dinámicamente
+        const tagsHTML = proyecto.tags.map(tag => `<span class="portfolio-card__tag">${tag}</span>`).join('');
+
+        // Usamos la estructura de tu card original
+        return `
+            <article class="portfolio-card" data-aos="fade-up">
+                <div class="portfolio-card__image">
+                    ${proyecto.url_imagen ? `<img src="${proyecto.url_imagen}" alt="${proyecto.titulo}" style="width:100%; height:100%; object-fit:cover;">` : `
+                    <div class="portfolio-card__mockup">
+                        <div class="portfolio-card__mockup-header">
+                            <div class="portfolio-card__mockup-dot"></div>
+                            <div class="portfolio-card__mockup-dot"></div>
+                            <div class="portfolio-card__mockup-dot"></div>
+                        </div>
+                        <div class="portfolio-card__mockup-content">
+                            <div class="portfolio-card__mockup-line"></div>
+                            <div class="portfolio-card__mockup-line portfolio-card__mockup-line--short"></div>
+                        </div>
+                    </div>`}
+                </div>
+                <div class="portfolio-card__content">
+                    <h3 class="portfolio-card__title">${proyecto.titulo}</h3>
+                    <p class="portfolio-card__description">${proyecto.descripcion}</p>
+                    <div class="portfolio-card__tags">
+                        ${tagsHTML}
+                    </div>
+                    <a href="${proyecto.url_sitio}" class="portfolio-card__link" target="_blank" rel="noopener">
+                        Ver proyecto
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+        `;
+    }).join('');
+}
+
+
+// ===== TU CÓDIGO ORIGINAL EMPIEZA AQUÍ =====
 
 // Polyfill liviano para requestIdleCallback (no bloquea)
 (() => {
@@ -11,6 +82,9 @@
 
 // ===== INITIALIZATION =====
 document.addEventListener("DOMContentLoaded", () => {
+  // LLAMAMOS A LA FUNCIÓN PARA CARGAR PROYECTOS CUANDO LA PÁGINA ESTÉ LISTA
+  cargarProyectos();
+
   // Initialize AOS (con guardas y config estable)
   const AOS = window.AOS;
   if (AOS && typeof AOS.init === "function") {
