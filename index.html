@@ -30,10 +30,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 
-  <link rel="preload" href="/styles.css" as="style">
-  <link rel="preload" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-6ip9rK4sFs43Xppj22lfwcS9YkqAYr.png" as="image" fetchpriority="high">
-  <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style">
-
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
@@ -94,7 +90,7 @@
   <style>
     section {
       content-visibility: auto;
-      contain-intrinsic-size: 1000px; /* Tamaño estimado para evitar saltos de layout */
+      contain-intrinsic-size: 1000px;
     }
   </style>
 
@@ -200,17 +196,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-    <script defer>
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        AOS.init({
-            once: true,
-            duration: 500,
-            offset: 60,
-            easing: 'ease-out'
-        });
-        }
-    </script>
-
+    
     <script src="scripts.js" defer></script>
     <script defer>
         if ("serviceWorker" in navigator) {
