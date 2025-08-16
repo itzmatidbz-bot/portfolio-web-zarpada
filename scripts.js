@@ -1,5 +1,5 @@
 // ==============================
-// scripts.js — Web Zarpada (con Supabase y corrección de AOS)
+// scripts.js — Web Zarpada (con Supabase y mockup original restaurado)
 // ==============================
 
 // ===== CONFIGURACIÓN DE SUPABASE =====
@@ -12,7 +12,9 @@ const supabaseCliente = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // ===== FUNCIÓN PARA CARGAR PROYECTOS DEL PORTFOLIO =====
 async function cargarProyectos() {
     const portfolioGrid = document.getElementById('portfolio-grid');
-    if (!portfolioGrid) return;
+    if (!portfolioGrid) return; 
+
+    portfolioGrid.innerHTML = '<p style="text-align: center;">Cargando proyectos...</p>';
 
     const { data, error } = await supabaseCliente
         .from('proyectos')
@@ -21,25 +23,43 @@ async function cargarProyectos() {
 
     if (error) {
         console.error('Error al cargar proyectos:', error);
-        portfolioGrid.innerHTML = '<p>Error al cargar los proyectos. Intenta de nuevo más tarde.</p>';
+        portfolioGrid.innerHTML = '<p style="text-align: center; color: red;">Error al cargar los proyectos. Intenta de nuevo más tarde.</p>';
         return;
     }
 
     if (data.length === 0) {
-        portfolioGrid.innerHTML = '<p>Aún no hay proyectos para mostrar. ¡Vuelve pronto!</p>';
+        portfolioGrid.innerHTML = '<p style="text-align: center;">Aún no hay proyectos para mostrar. ¡Vuelve pronto!</p>';
         return;
     }
 
     portfolioGrid.innerHTML = data.map(proyecto => {
         const tagsHTML = proyecto.tags.map(tag => `<span class="portfolio-card__tag">${tag}</span>`).join('');
+        const delay = (data.indexOf(proyecto) * 100) + 100;
+
+        // === ESTA ES LA LÓGICA CORREGIDA ===
+        // Si hay 'url_imagen', muestra la imagen.
+        // Si no, muestra tu mockup original completo y "facha".
+        const imagenHTML = proyecto.url_imagen 
+            ? `<img src="${proyecto.url_imagen}" alt="${proyecto.titulo}" style="width:100%; height:100%; object-fit:cover;" loading="lazy">`
+            : `
+            <div class="portfolio-card__mockup">
+                <div class="portfolio-card__mockup-header">
+                    <div class="portfolio-card__mockup-dot"></div>
+                    <div class="portfolio-card__mockup-dot"></div>
+                    <div class="portfolio-card__mockup-dot"></div>
+                </div>
+                <div class="portfolio-card__mockup-content">
+                    <div class="portfolio-card__mockup-line"></div>
+                    <div class="portfolio-card__mockup-line portfolio-card__mockup-line--short"></div>
+                    <div class="portfolio-card__mockup-line portfolio-card__mockup-line--medium"></div>
+                    <div class="portfolio-card__mockup-line"></div>
+                </div>
+            </div>`;
+
         return `
-            <article class="portfolio-card" data-aos="fade-up">
+            <article class="portfolio-card" data-aos="fade-up" data-aos-delay="${delay}">
                 <div class="portfolio-card__image">
-                    ${proyecto.url_imagen ? `<img src="${proyecto.url_imagen}" alt="${proyecto.titulo}" style="width:100%; height:100%; object-fit:cover;" loading="lazy">` : `
-                    <div class="portfolio-card__mockup">
-                        <div class="portfolio-card__mockup-header"><div class="portfolio-card__mockup-dot"></div><div class="portfolio-card__mockup-dot"></div><div class="portfolio-card__mockup-dot"></div></div>
-                        <div class="portfolio-card__mockup-content"><div class="portfolio-card__mockup-line"></div><div class="portfolio-card__mockup-line portfolio-card__mockup-line--short"></div></div>
-                    </div>`}
+                    ${imagenHTML}
                 </div>
                 <div class="portfolio-card__content">
                     <h3 class="portfolio-card__title">${proyecto.titulo}</h3>
@@ -58,6 +78,7 @@ async function cargarProyectos() {
 
 // ===== TU CÓDIGO ORIGINAL EMPIEZA AQUÍ =====
 
+// Polyfill liviano para requestIdleCallback (no bloquea)
 (() => {
   if (!("requestIdleCallback" in window)) {
     window.requestIdleCallback = (cb) => setTimeout(() => cb({ timeRemaining: () => 0 }), 1);
@@ -68,8 +89,6 @@ async function cargarProyectos() {
 document.addEventListener("DOMContentLoaded", () => {
   cargarProyectos();
 
-  // --- ESTA ES LA CORRECCIÓN DE AOS ---
-  // Se inicializa aquí, de forma segura, en vez de en el index.html
   if (typeof AOS !== 'undefined') {
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         AOS.init({
@@ -81,11 +100,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   }
 
+  // Core features primero (rápidos)
   initMobileMenu();
   initScrollEffects();
   initWhatsAppFloat();
   initSmoothScroll();
 
+  // Diferir lo no crítico al idle (libera main thread)
   requestIdleCallback(() => {
     initModalHandlers();
     initCounterAnimations();
@@ -94,15 +115,11 @@ document.addEventListener("DOMContentLoaded", () => {
     initSEOEnhancements();
   });
 
+  // Loading screen si lo usás
   requestIdleCallback(showLoadingScreen);
 
   console.log("🚀 Web Zarpada - Website loaded successfully");
 });
-
-// ... EL RESTO DE TU ARCHIVO scripts.js SE MANTIENE EXACTAMENTE IGUAL ...
-// (Todas las funciones desde showLoadingScreen hasta el console.log final)
-// COPIA Y PEGA TODO TU CÓDIGO RESTANTE DEBAJO DE ESTA LÍNEA
-
 
 // ===== LOADING SCREEN =====
 function showLoadingScreen() {
@@ -207,14 +224,13 @@ function initScrollEffects() {
   const onScroll = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > 50) {
-      // usar style minimal para evitar layout thrash
       header.style.cssText = "background:rgba(255,255,255,.98);box-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1)";
     } else {
       header.style.cssText = "background:rgba(255,255,255,.95);box-shadow:none";
     }
   };
 
-  onScroll(); // estado inicial
+  onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 }
 
@@ -237,7 +253,7 @@ function initSmoothScroll() {
   links.forEach((link) => {
     link.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
-      if (targetId.length < 2) return; // href="#"
+      if (targetId.length < 2) return;
       const targetSection = document.querySelector(targetId);
       if (!targetSection) return;
 
@@ -252,12 +268,10 @@ function initSmoothScroll() {
 
 // ===== MODAL HANDLERS =====
 function initModalHandlers() {
-  // Close modal with ESC key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeWhatsAppModal();
   });
 
-  // Close modal when clicking outside
   document.addEventListener("click", (e) => {
     const modal = document.getElementById("whatsapp-modal");
     if (modal && e.target === modal) closeWhatsAppModal();
@@ -318,13 +332,11 @@ function contactPlan(planName) {
 
 // ===== LAZY LOADING =====
 function initLazyLoading() {
-  // nativo: asegura atributos en <img> normales
   document.querySelectorAll("img").forEach((img) => {
     if (!img.hasAttribute("loading")) img.setAttribute("loading", "lazy");
     if (!img.hasAttribute("decoding")) img.setAttribute("decoding", "async");
   });
 
-  // IO para data-src / data-srcset
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(
       (entries, obs) => {
@@ -352,7 +364,6 @@ function initLazyLoading() {
 
 // ===== PERFORMANCE OPTIMIZATIONS =====
 function initPerformanceOptimizations() {
-  // Preload critical local resources (mejor local que absoluto)
   const criticalImages = ["/logo.avif"];
   criticalImages.forEach((href) => {
     const link = document.createElement("link");
@@ -362,13 +373,11 @@ function initPerformanceOptimizations() {
     document.head.appendChild(link);
   });
 
-  // Optimize animations for low-end devices
   if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
     document.documentElement.style.setProperty("--transition-fast", "0.1s ease-out");
     document.documentElement.style.setProperty("--transition-normal", "0.2s ease-out");
   }
 
-  // Respeta usuarios con reduce motion
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     document.documentElement.style.setProperty("--transition-fast", "0s");
     document.documentElement.style.setProperty("--transition-normal", "0s");
@@ -386,17 +395,12 @@ function trackEvent(eventName, properties = {}) {
     referrer: document.referrer
   };
 
-  // Consola para debug
   console.log(`📊 Event: ${eventName}`, eventData);
 
-  // GA4 si existe
   if (window.gtag) window.gtag("event", eventName, eventData);
-
-  // FB Pixel si existe
   if (window.fbq) window.fbq("track", eventName, eventData);
 }
 
-// Enhanced interaction tracking (delegación + pasivo)
 document.addEventListener("click", (e) => {
   const pc = e.target.closest(".portfolio-card");
   if (pc) {
@@ -448,7 +452,6 @@ function debounce(fn, wait) {
   };
 }
 
-// throttle real (no era igual que debounce)
 function throttle(fn, wait) {
   let last = 0, timeout, pendingArgs;
   const later = () => {
@@ -484,7 +487,6 @@ window.addEventListener("load", () => {
     connection: navigator.connection?.effectiveType || "unknown"
   });
 
-  // Initialize non-critical features after load
   setTimeout(() => {
     initEnhancedAnimations();
     createParticles();
@@ -534,14 +536,12 @@ function showNotification(message, type = "info") {
 
 // ===== ENHANCED ANIMATIONS =====
 function initEnhancedAnimations() {
-  // Portfolio cards
   document.querySelectorAll(".portfolio-card").forEach((card) => {
     if (isTouch()) return;
     card.addEventListener("mouseenter", () => { card.style.transform = "translateY(-8px) scale(1.02)"; });
     card.addEventListener("mouseleave", () => { card.style.transform = "translateY(0) scale(1)"; });
   });
 
-  // Service cards
   document.querySelectorAll(".service-card").forEach((card) => {
     if (isTouch()) return;
     const icon = card.querySelector(".service-card__icon");
@@ -550,7 +550,6 @@ function initEnhancedAnimations() {
     card.addEventListener("mouseleave", () => { icon.style.transform = "scale(1) rotate(0deg)"; });
   });
 
-  // Showcase cards
   document.querySelectorAll(".showcase-card").forEach((card) => {
     card.addEventListener("click", () => {
       const title = card.querySelector(".showcase-card__title");
@@ -672,7 +671,6 @@ function initSEOEnhancements() {
 
   sections.forEach((s) => obs.observe(s));
 
-  // Links externos seguros
   document.querySelectorAll('a[target="_blank"]').forEach((a) => {
     if (!a.rel || !a.rel.includes("noopener")) {
       a.rel = (a.rel ? a.rel + " " : "") + "noopener";
@@ -682,7 +680,6 @@ function initSEOEnhancements() {
 
 // ===== FINAL INITIALIZATION (compat) =====
 document.addEventListener("DOMContentLoaded", () => {
-  // Si otro código dependía de este timeout, se mantiene
   setTimeout(() => { initSEOEnhancements(); }, 2000);
 });
 
