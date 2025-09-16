@@ -1,5 +1,5 @@
 // ==============================
-// scripts.js — Web Zarpada (con Supabase y mockup original restaurado)
+// scripts.js — Faro Digital (con Supabase y mockup original restaurado)
 // ==============================
 
 // ===== CONFIGURACIÓN DE SUPABASE =====
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Loading screen si lo usás
   requestIdleCallback(showLoadingScreen);
 
-  console.log("🚀 Web Zarpada - Website loaded successfully");
+  console.log("🚀 Faro Digital - Website loaded successfully");
 });
 
 // ===== LOADING SCREEN =====
@@ -654,12 +654,12 @@ function initSEOEnhancements() {
   if (!sections.length) return;
 
   const titles = {
-    inicio: "Web Zarpada - Páginas Web Profesionales en Uruguay",
-    portfolio: "Portfolio - Proyectos de Páginas Web | Web Zarpada",
-    servicios: "Servicios de Desarrollo Web | Web Zarpada Uruguay",
-    precios: "Precios de Páginas Web | Web Zarpada Uruguay",
-    nosotros: "Sobre Nosotros - Desarrollador Web | Web Zarpada",
-    contacto: "Contacto - Desarrollador Web Uruguay | Web Zarpada"
+    inicio: "Faro Digital - Páginas Web Profesionales en Uruguay",
+    portfolio: "Portfolio - Proyectos de Páginas Web | Faro Digital",
+    servicios: "Servicios de Desarrollo Web | Faro Digital Uruguay",
+    precios: "Precios de Páginas Web | Faro Digital Uruguay",
+    nosotros: "Sobre Nosotros - Desarrollador Web | Faro Digital",
+    contacto: "Contacto - Desarrollador Web Uruguay | Faro Digital"
   };
 
   const obs = new IntersectionObserver((entries) => {
@@ -699,3 +699,4 @@ console.log(`
 WhatsApp: 092 014 535
 Email: contacto@farodigital.uy
 `);
+

@@ -21,18 +21,20 @@
   --color-gray-900: #171717;
 
   /* Brand Colors */
-  --color-primary: #4f46e5;
-  --color-secondary: #7c3aed;
-  --color-accent: #06b6d4;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-primary: #0A2A4E; /* Azul marino FaroDigital */
+  --color-secondary: #FFD700; /* Amarillo acento */
+  --color-text: #353839; /* Gris texto */
+  
+  /* Success/Warning/Error colors adjusted to match new palette */
+  --color-success: #1a4b8c;
+  --color-warning: var(--color-secondary);
+  --color-error: #dc3545;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
-  --gradient-accent: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-  --gradient-logo: linear-gradient(135deg, #4f46e5 0%, #06b6d4 50%, #10b981 100%);
+  --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, #1a4b8c 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--color-secondary) 0%, #ffc800 100%);
+  --gradient-accent: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  --gradient-logo: linear-gradient(135deg, var(--color-primary) 0%, #1a4b8c 50%, var(--color-secondary) 100%);
 
   /* Typography optimizada */
   --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -541,17 +543,17 @@ body.loaded {
 
 @keyframes gradientShift {
   0% {
-    background: linear-gradient(135deg, #ff6b35 0%, #4f46e5 50%, #10b981 100%);
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 50%, #1a4b8c 100%);
     -webkit-background-clip: text;
     background-clip: text;
   }
   50% {
-    background: linear-gradient(135deg, #4f46e5 0%, #10b981 50%, #ff6b35 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1a4b8c 50%, var(--color-secondary) 100%);
     -webkit-background-clip: text;
     background-clip: text;
   }
   100% {
-    background: linear-gradient(135deg, #10b981 0%, #ff6b35 50%, #4f46e5 100%);
+    background: linear-gradient(135deg, #1a4b8c 0%, var(--color-secondary) 50%, var(--color-primary) 100%);
     -webkit-background-clip: text;
     background-clip: text;
   }

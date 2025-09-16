@@ -23,6 +23,7 @@ loginForm.addEventListener('submit', async (event) => {
         email: email,
         password: password,
     });
+    
 
     if (error) {
         console.error('Error al iniciar sesión:', error.message);

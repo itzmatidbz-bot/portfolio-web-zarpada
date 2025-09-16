@@ -1,5 +1,5 @@
-// Service Worker: v6 - Estrategias y lista de assets corregida
-const VERSION = "v6";
+// Service Worker: v7 - Estrategias y lista de assets corregida
+const VERSION = "v7";
 const STATIC_CACHE = `static-${VERSION}`;
 const RUNTIME_CACHE = `runtime-${VERSION}`;
 
