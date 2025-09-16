@@ -22,7 +22,7 @@
 
   /* Brand Colors */
   --color-primary: #0A2A4E; /* Azul marino FaroDigital */
-  --color-secondary: #FFD700; /* Amarillo acento */
+  --color-secondary: #60A5FA; /* Nuevo color - Celeste/Azul claro */
   --color-text: #353839; /* Gris texto */
   
   /* Success/Warning/Error colors adjusted to match new palette */
@@ -30,9 +30,9 @@
   --color-warning: var(--color-secondary);
   --color-error: #dc3545;
 
-  /* Gradients */
+  /* Gradients updated */
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, #1a4b8c 100%);
-  --gradient-secondary: linear-gradient(135deg, var(--color-secondary) 0%, #ffc800 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--color-secondary) 0%, #93C5FD 100%);
   --gradient-accent: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   --gradient-logo: linear-gradient(135deg, var(--color-primary) 0%, #1a4b8c 50%, var(--color-secondary) 100%);
 
