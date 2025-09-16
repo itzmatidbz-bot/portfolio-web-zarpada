@@ -387,6 +387,7 @@ function initPerformanceOptimizations() {
 // ===== ANALYTICS & TRACKING =====
 function trackEvent(eventName, properties = {}) {
   const eventData = {
+    brand: "FaroDigital",
     ...properties,
     timestamp: new Date().toISOString(),
     url: location.href,
@@ -685,16 +686,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ===== CONSOLE BRANDING =====
 console.log(`
-🔥 MATÍAS - WEB ZARPADA
-💻 Portfolio personal optimizado
-📱 Responsive design profesional
-⚡ Performance optimizada
-🎨 Diseño que impacta
-💰 Precios accesibles
-🚀 100% funcional
-🇺🇾 Hecho con ❤️ en Uruguay
+🌟 FARODIGITAL
+💡 Tu guía en el mundo digital
+💻 Desarrollo web profesional
+📱 Diseño responsive
+⚡ Alto rendimiento
+🎯 Enfoque en resultados
+🚀 Páginas que convierten
+🇺🇾 Hecho en Uruguay
 
-¿Querés una página web profesional? ¡Hablemos!
+¿Necesitas una página web profesional? ¡Hablemos!
 WhatsApp: 092 014 535
-Email: webzarpada@gmail.com
+Email: contacto@farodigital.uy
 `);

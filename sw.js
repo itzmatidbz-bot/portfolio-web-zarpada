@@ -1,5 +1,5 @@
-// Service Worker: v5 - Estrategias y lista de assets corregida
-const VERSION = "v5";
+// Service Worker: v6 - Estrategias y lista de assets corregida
+const VERSION = "v6";
 const STATIC_CACHE = `static-${VERSION}`;
 const RUNTIME_CACHE = `runtime-${VERSION}`;
 
@@ -21,7 +21,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then((cache) => cache.addAll(STATIC_ASSETS))
-      .catch(err => console.error("SW Precaching failed:", err))
+      .catch(err => console.error("FaroDigital SW Precaching failed:", err))
   );
 });
 
