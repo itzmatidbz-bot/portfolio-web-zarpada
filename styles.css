@@ -1,4 +1,4 @@
-/* ===== RESET & BASE OPTIMIZADO ===== */
+* ===== RESET & BASE OPTIMIZADO ===== */
 * {
   margin: 0;
   padding: 0;
@@ -1310,6 +1310,20 @@ section {
 .delivery-badge svg {
   width: 18px;
   height: 18px;
+}
+
+.pricing__footer {
+  text-align: center;
+  margin-top: var(--space-8);
+}
+
+.pricing__disclaimer {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* ===== SHOWCASE SECTION ===== */
