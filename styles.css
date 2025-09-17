@@ -1281,30 +1281,28 @@ section {
     color: var(--color-gray-200);
 }
 
-.delivery-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: var(--color-gray-100);
-  color: var(--color-gray-700);
-  border-radius: var(--radius-full);
+.pricing__note {
+  display: block;
+  margin-top: 1rem;
   font-size: 0.875rem;
-  font-weight: 600;
-  margin: var(--space-6) auto var(--space-8);
-  border: 1px solid var(--color-gray-200);
+  color: var(--color-gray-600);
 }
 
-.pricing-card--featured .delivery-badge {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--color-white);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.pricing__disclaimer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  border-top: 1px solid var(--color-gray-200);
 }
 
-.delivery-badge svg {
-  width: 18px;
-  height: 18px;
+.pricing-card--featured .pricing__note,
+.pricing-card--featured .pricing__disclaimer {
+  color: var(--color-gray-200);
 }
 
 /* ===== SHOWCASE SECTION ===== */
