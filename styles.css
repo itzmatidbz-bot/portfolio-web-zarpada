@@ -1139,11 +1139,18 @@ section {
     margin: 0 auto var(--space-16);
 }
 
+.pricing__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+/* Pricing grid */
 .pricing__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 @media (min-width: 768px) {
@@ -1153,156 +1160,131 @@ section {
 }
 
 .pricing-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-gray-200);
-    border-radius: var(--radius-xl);
-    padding: var(--space-8);
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border: 2px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    transition: all var(--transition-normal);
-    position: relative;
 }
 
-.pricing-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
+/* Plan Despegue */
+.pricing-card:first-child {
+  background: linear-gradient(145deg, #ffffff 0%, #e8f4ff 100%);
+  border-color: #60a5fa;
 }
 
+/* Plan Consolidación */
 .pricing-card--featured {
-    background: var(--gradient-primary);
-    color: var(--color-white);
-    border: none;
-    transform: scale(1.05);
-    z-index: 10;
+  background: linear-gradient(145deg, var(--color-primary) 0%, #1e40af 100%);
+  border: none;
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+/* Plan Expansión */
+.pricing-card:last-child {
+  background: linear-gradient(145deg, #ffffff 0%, #eff6ff 100%);
+  border-color: #3b82f6;
+}
+
+/* Hover effects */
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(10, 42, 78, 0.1);
 }
 
 .pricing-card--featured:hover {
-    transform: scale(1.05) translateY(-8px);
-    box-shadow: var(--shadow-2xl), 0 0 40px rgba(10, 42, 78, 0.5);
+  transform: scale(1.05) translateY(-8px);
 }
 
-
-.pricing-card__badge {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--gradient-secondary);
-    color: var(--color-primary);
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    box-shadow: var(--shadow);
+/* Delivery badge with more style */
+.delivery-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1e40af 100%);
+  color: white;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-top: auto;
+  box-shadow: 0 4px 6px rgba(10, 42, 78, 0.1);
 }
 
-.pricing-card__header {
-    text-align: center;
-    margin-bottom: var(--space-6);
+/* Responsive design */
+@media screen and (max-width: 1024px) {
+  .pricing__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .pricing-card--featured {
+    grid-column: span 2;
+    margin-top: 1.5rem;
+  }
 }
 
-.pricing-card__title {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-gray-900);
-    margin-bottom: var(--space-2);
+@media screen and (max-width: 768px) {
+  .pricing__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .pricing-card--featured {
+    grid-column: auto;
+    transform: scale(1);
+  }
+  
+  .pricing-card:hover,
+  .pricing-card--featured:hover {
+    transform: translateY(-8px);
+  }
 }
 
-.pricing-card--featured .pricing-card__title {
-    color: var(--color-white);
+/* Extra decorative elements */
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,0.1) 100%);
+  border-radius: 0 24px 0 100%;
 }
 
-.pricing-card__description {
-    color: var(--color-gray-600);
-    font-size: var(--font-size-sm);
-}
-
-.pricing-card--featured .pricing-card__description {
-    color: var(--color-gray-300);
-}
-
+/* Price styling */
 .pricing-card__price {
-    text-align: center;
-    margin-bottom: var(--space-8);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: var(--color-primary);
 }
 
-.pricing-card__amount {
-    font-size: var(--font-size-5xl);
-    font-weight: var(--font-weight-extrabold);
-    color: var(--color-gray-900);
-    line-height: 1;
+.pricing-card--featured .pricing-card__price {
+  color: white;
 }
 
-.pricing-card--featured .pricing-card__amount {
-    color: var(--color-white);
-}
-
-.pricing-card__period {
-    color: var(--color-gray-500);
-    font-size: var(--font-size-base);
-}
-
-.pricing-card--featured .pricing-card__period {
-    color: var(--color-gray-300);
-}
-
-
+/* Features list styling */
 .pricing-card__features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 var(--space-8) 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    flex-grow: 1;
+  margin: 1.5rem 0;
 }
 
 .pricing-card__features li {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-gray-700);
 }
 
-.pricing-card__features svg {
-    color: var(--color-secondary);
-    flex-shrink: 0;
-    margin-top: 4px;
-}
-
-.pricing-card--featured .pricing-card__features svg {
-    color: var(--color-secondary);
-}
-
-.pricing-card__features span {
-    color: var(--color-gray-700);
-}
-
-.pricing-card--featured .pricing-card__features span {
-    color: var(--color-gray-200);
-}
-
-.pricing__note {
-  display: block;
-  margin-top: 1rem;
-  font-size: 0.875rem;
-  color: var(--color-gray-600);
-}
-
-.pricing__disclaimer {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 0.875rem;
-  color: var(--color-gray-600);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem;
-  border-top: 1px solid var(--color-gray-200);
-}
-
-.pricing-card--featured .pricing__note,
-.pricing-card--featured .pricing__disclaimer {
-  color: var(--color-gray-200);
+.pricing-card--featured .pricing-card__features li {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ===== SHOWCASE SECTION ===== */
