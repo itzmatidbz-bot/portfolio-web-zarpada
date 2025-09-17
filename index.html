@@ -337,79 +337,163 @@
 
             <div class="pricing__grid">
             <!-- Plan Despegue -->
-            <div class="pricing-card" data-aos="fade-up">
-                <div class="pricing-card__header">
-                <h3 class="pricing-card__title">Plan Despegue</h3>
-                <p class="pricing-card__price">Desde USD 100</p>
-                </div>
-                <div class="pricing-card__content">
-                <p class="pricing-card__description">
-                    Tu primer gran paso en el mundo digital. Una landing page profesional diseñada para captar 
-                    la atención y convertir visitantes en clientes.
-                </p>
-                <ul class="pricing-card__features">
-                    <li>Diseño personalizado y optimizado</li>
-                    <li>Integración con redes sociales</li>
-                    <li>Formulario de contacto y mapa de ubicación</li>
-                    <li>Estadísticas básicas de visita</li>
-                    <li>1 ronda de ajustes incluida</li>
-                </ul>
-                <p class="pricing-card__delivery">Entrega máx. 7 días</p>
-                <button class="btn btn--primary" onclick="contactPlan('Despegue')">
-                    Consultar
-                </button>
-                </div>
+            <div class="pricing-card">
+              <h3 class="pricing-card__title">Plan Despegue</h3>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount">Desde USD 100</span>
+              </div>
+              
+              <ul class="pricing-card__features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Diseño personalizado y optimizado
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Integración con redes sociales
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Formulario de contacto y mapa de ubicación
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Estadísticas básicas de visita
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  1 ronda de ajustes incluida
+                </li>
+              </ul>
+
+              <div class="delivery-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+                Entrega máx. 7 días
+              </div>
+
+              <button class="btn btn--primary" onclick="contactPlan('Despegue')">
+                  Consultar
+              </button>
             </div>
 
-            <!-- Plan Consolidación -->
-            <div class="pricing-card pricing-card--featured" data-aos="fade-up" data-aos-delay="100">
-                <div class="pricing-card__badge">Más elegido</div>
-                <div class="pricing-card__header">
-                <h3 class="pricing-card__title">Plan Consolidación</h3>
-                <p class="pricing-card__price">Desde USD 200</p>
-                </div>
-                <div class="pricing-card__content">
-                <p class="pricing-card__description">
-                    Establece tu marca con un sitio web completo. Ideal para negocios que necesitan presentar 
-                    múltiples servicios y construir una sólida reputación online.
-                </p>
-                <ul class="pricing-card__features">
-                    <li>Hasta 5 páginas con contenido personalizado</li>
-                    <li>Optimización SEO avanzada</li>
-                    <li>Integración con Google Analytics</li>
-                    <li>2 rondas de ajustes incluidas</li>
-                    <li>Entrega prioritaria</li>
-                </ul>
-                <p class="pricing-card__delivery">Entrega máx. 10 días</p>
-                <button class="btn btn--primary" onclick="contactPlan('Consolidacion')">
-                    Consultar
-                </button>
-                </div>
+            <!-- Plan Consolidación (Featured) -->
+            <div class="pricing-card pricing-card--featured">
+              <div class="pricing-card__badge">Más elegido</div>
+              <h3 class="pricing-card__title">Plan Consolidación</h3>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount">Desde USD 200</span>
+              </div>
+              
+              <ul class="pricing-card__features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Hasta 5 páginas con contenido personalizado
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Optimización SEO avanzada
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Integración con Google Analytics
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  2 rondas de ajustes incluidas
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Entrega prioritaria
+                </li>
+              </ul>
+
+              <div class="delivery-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+                Entrega máx. 10 días
+              </div>
+
+              <button class="btn btn--primary" onclick="contactPlan('Consolidacion')">
+                  Consultar
+              </button>
             </div>
 
             <!-- Plan Expansión -->
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-card__header">
-                <h3 class="pricing-card__title">Plan Expansión</h3>
-                <p class="pricing-card__price">Desde USD 300</p>
-                </div>
-                <div class="pricing-card__content">
-                <p class="pricing-card__description">
-                    La solución definitiva para negocios que buscan destacar. Un sitio web robusto con diseño 
-                    a medida y rendimiento optimizado para el máximo impacto.
-                </p>
-                <ul class="pricing-card__features">
-                    <li>Hasta 8 páginas con diseño y contenido a medida</li>
-                    <li>SEO completo y optimización de velocidad</li>
-                    <li>Integración con herramientas de marketing</li>
-                    <li>Soporte y mantenimiento por 3 meses</li>
-                    <li>Entrega flexible según complejidad</li>
-                </ul>
-                <p class="pricing-card__delivery">Entrega a partir de 15 días</p>
-                <button class="btn btn--primary" onclick="contactPlan('Expansion')">
-                    Consultar
-                </button>
-                </div>
+            <div class="pricing-card">
+              <h3 class="pricing-card__title">Plan Expansión</h3>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount">Desde USD 300</span>
+              </div>
+              
+              <ul class="pricing-card__features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Hasta 8 páginas con diseño y contenido a medida
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  SEO completo y optimización de velocidad
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Integración con herramientas de marketing
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Soporte y mantenimiento por 3 meses
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  Entrega flexible según complejidad
+                </li>
+              </ul>
+
+              <div class="delivery-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+                Entrega a partir de 15 días
+              </div>
+
+              <button class="btn btn--primary" onclick="contactPlan('Expansion')">
+                  Consultar
+              </button>
             </div>
             </div>
         </div>
