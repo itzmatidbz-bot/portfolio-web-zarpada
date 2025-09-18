@@ -17,5 +17,22 @@
   ],
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "start_url": "./index.html",
+  "scope": "./",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "description": "Faro Digital - Your digital partner",
+  "lang": "es-UY",
+  "dir": "ltr",
+  "icons_path": "./icons/",
+  "splash_pages": null,
+  "screenshots": [],
+  "shortcuts": [],
+  "name_purpose": "maskable",
+  "theme_color_dark": "#000000",
+  "background_color_dark": "#000000",
+  "display_override": ["minimal-ui"],
+  "prefer_related_applications": false
 }
