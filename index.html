@@ -665,13 +665,31 @@
        </script>
 
     <script src="scripts.js" defer></script>
- <script defer>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/sw.js").catch(console.error);
+    <script defer>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js").catch(console.error);
+        });
+      }
+    </script>
+
+    <!-- Metricool Analytics -->
+    <script>
+      function loadScript(a){
+        var b=document.getElementsByTagName("head")[0],
+        c=document.createElement("script");
+        c.type="text/javascript",
+        c.src="https://tracker.metricool.com/resources/be.js",
+        c.onreadystatechange=a,
+        c.onload=a,
+        b.appendChild(c)
+      }
+      loadScript(function(){
+        beTracker.t({
+          hash:"c6a37404412ddb9a92b63f573d49ceea"
+        })
       });
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>
 
