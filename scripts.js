@@ -700,3 +700,64 @@ WhatsApp: 092 014 535
 Email: contacto@farodigital.uy
 `);
 
+// ===== MOUSE FOLLOW ANIMATION =====
+function initMouseFollow() {
+  const cursor = document.createElement('div');
+  cursor.className = 'custom-cursor';
+  document.body.appendChild(cursor);
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let cursorX = 0;
+  let cursorY = 0;
+
+  // Spring configuration
+  const SPRING = {
+    mass: 0.1,
+    damping: 10,
+    stiffness: 131
+  };
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
+  });
+
+  document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+  });
+
+  function animate() {
+    // Spring physics calculation
+    const dx = mouseX - cursorX;
+    const dy = mouseY - cursorY;
+    const ax = dx * SPRING.stiffness;
+    const ay = dy * SPRING.stiffness;
+    const vx = ax / SPRING.mass;
+    const vy = ay / SPRING.mass;
+    
+    cursorX += (vx * SPRING.damping) * 0.01;
+    cursorY += (vy * SPRING.damping) * 0.01;
+    
+    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+    
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+// Add to your initialization code
+document.addEventListener("DOMContentLoaded", () => {
+  // ...existing initialization code...
+  
+  // Initialize mouse follow animation
+  if (!isMobile() && !isTablet()) {  // Only on desktop
+    initMouseFollow();
+  }
+});
+
