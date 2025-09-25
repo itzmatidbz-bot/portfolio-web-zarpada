@@ -8,4 +8,4 @@ Disallow: /*?*fbclid=*
 # Crawl suave
 Crawl-delay: 2
 
-Sitemap: https://webzarpada.netlify.app/sitemap.xml
+Sitemap: https://farodigital.uy/sitemap.xml

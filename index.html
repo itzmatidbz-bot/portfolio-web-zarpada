@@ -19,14 +19,30 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0f172a">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
 
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Faro Digital" />
-<link rel="manifest" href="/site.webmanifest" />
-  <link rel="manifest" href="/site.webmanifest">
+  <!-- Favicon universal -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
 
+<!-- Open Graph para redes y buscadores -->
+<meta property="og:image" content="https://farodigital.uy/favicon-96x96.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="96">
+<meta property="og:image:height" content="96">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <![endif]-->
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/@hellouxpavel/cssanimation@latest/dist/cssanimation.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/@hellouxpavel/cssanimation@latest/dist/cssanimation-utility.min.css"
+    rel="stylesheet"
+  />
   <link rel="dns-prefetch" href="https://unpkg.com">
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,7 +124,9 @@
             <div class="nav__brand">
                 <a href="#inicio" class="nav__logo">
                     <img src="favicon.ico" alt="Faro Digital" class="nav__logo-icon" width="48" height="48">
-                    <span class="nav__logo-text">Faro Digital</span>
+                  
+                    <span  class="nav__logo-text ">Faro Digital</span>
+                    
                 </a>
             </div>
             
@@ -165,7 +183,7 @@
                     </div>
                     
                     <!-- Update the hero section -->
-                    <h1 class="hero__title">
+                    <h1 class="hero__title text-focus-in ">
                         Tu guía para crecer en el mundo digital. Creamos la <strong>página web</strong> que tu negocio necesita.
                     </h1>
                     
